@@ -136,27 +136,27 @@ dispatch_semaphore_signal(_lock);
     LOCK(id o = [_dic objectForKeyedSubscript:key]); return o;
 }
 
-- (void)enumerateKeysAndObjectsUsingBlock:(void (^)(id key, id obj, BOOL *stop))block {
+- (void)enumerateKeysAndObjectsUsingBlock:(__attribute__((noescape)) void (^)(id _Nonnull, id _Nonnull, BOOL * _Nonnull))block {
     LOCK([_dic enumerateKeysAndObjectsUsingBlock:block]);
 }
 
-- (void)enumerateKeysAndObjectsWithOptions:(NSEnumerationOptions)opts usingBlock:(void (^)(id key, id obj, BOOL *stop))block {
+- (void)enumerateKeysAndObjectsWithOptions:(NSEnumerationOptions)opts usingBlock:(__attribute__((noescape)) void (^)(id _Nonnull, id _Nonnull, BOOL * _Nonnull))block {
     LOCK([_dic enumerateKeysAndObjectsWithOptions:opts usingBlock:block]);
 }
 
-- (NSArray *)keysSortedByValueUsingComparator:(NSComparator)cmptr {
+- (NSArray *)keysSortedByValueUsingComparator:(__attribute__((noescape)) NSComparator)cmptr {
     LOCK(NSArray * a = [_dic keysSortedByValueUsingComparator:cmptr]); return a;
 }
 
-- (NSArray *)keysSortedByValueWithOptions:(NSSortOptions)opts usingComparator:(NSComparator)cmptr {
+- (NSArray *)keysSortedByValueWithOptions:(NSSortOptions)opts usingComparator:(__attribute__((noescape)) NSComparator)cmptr {
     LOCK(NSArray * a = [_dic keysSortedByValueWithOptions:opts usingComparator:cmptr]); return a;
 }
 
-- (NSSet *)keysOfEntriesPassingTest:(BOOL (^)(id key, id obj, BOOL *stop))predicate {
+- (NSSet *)keysOfEntriesPassingTest:(__attribute__((noescape)) BOOL (^)(id key, id obj, BOOL *stop))predicate {
     LOCK(NSSet * a = [_dic keysOfEntriesPassingTest:predicate]); return a;
 }
 
-- (NSSet *)keysOfEntriesWithOptions:(NSEnumerationOptions)opts passingTest:(BOOL (^)(id key, id obj, BOOL *stop))predicate {
+- (NSSet *)keysOfEntriesWithOptions:(NSEnumerationOptions)opts passingTest:(__attribute__((noescape)) BOOL (^)(id key, id obj, BOOL *stop))predicate {
     LOCK(NSSet * a = [_dic keysOfEntriesWithOptions:opts passingTest:predicate]); return a;
 }
 
